@@ -1,8 +1,8 @@
-package tr.unvercanunlu.calculator;
+package tr.unvercanunlu.calculator.cases;
 
 import org.junit.Test;
 
-public interface CalculatorTestCases {
+public interface CalculatorTestCase {
 
 	@Test
 	void testWithNoInput();

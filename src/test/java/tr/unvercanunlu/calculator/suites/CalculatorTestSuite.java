@@ -3,18 +3,18 @@ package tr.unvercanunlu.calculator.suites;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
-import tr.unvercanunlu.calculator.imp.AddCalculatorTestCasesImp;
-import tr.unvercanunlu.calculator.imp.DivideCalculatorTestCasesImp;
-import tr.unvercanunlu.calculator.imp.MultiplyCalculatorTestCasesImp;
-import tr.unvercanunlu.calculator.imp.SubtractCalculatorTestCasesImp;
+import tr.unvercanunlu.calculator.cases.imp.AddCalculatorTestCaseImp;
+import tr.unvercanunlu.calculator.cases.imp.DivideCalculatorTestCaseImp;
+import tr.unvercanunlu.calculator.cases.imp.MultiplyCalculatorTestCaseImp;
+import tr.unvercanunlu.calculator.cases.imp.SubtractCalculatorTestCaseImp;
 
 @RunWith(Suite.class)
 
 @SuiteClasses({
-		AddCalculatorTestCasesImp.class,
-		SubtractCalculatorTestCasesImp.class,
-		MultiplyCalculatorTestCasesImp.class,
-		DivideCalculatorTestCasesImp.class
+		AddCalculatorTestCaseImp.class,
+		SubtractCalculatorTestCaseImp.class,
+		MultiplyCalculatorTestCaseImp.class,
+		DivideCalculatorTestCaseImp.class
 })
 
 public class CalculatorTestSuite {

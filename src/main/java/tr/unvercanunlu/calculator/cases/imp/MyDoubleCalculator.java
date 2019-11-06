@@ -1,4 +1,4 @@
-package tr.unvercanunlu.calculator.imp;
+package tr.unvercanunlu.calculator.cases.imp;
 
 import tr.unvercanunlu.calculator.Calculator;
 
