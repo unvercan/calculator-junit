@@ -1,13 +1,18 @@
 package tr.unvercanunlu.calculator.cases.imp;
 
 import junit.framework.TestCase;
+import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import tr.unvercanunlu.calculator.Calculator;
 import tr.unvercanunlu.calculator.cases.CalculatorTestCase;
+import tr.unvercanunlu.calculator.imp.MyDoubleCalculator;
 import tr.unvercanunlu.calculator.runners.CalculatorTestCaseRunner;
 
 @RunWith(CalculatorTestCaseRunner.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MultiplyCalculatorTestCaseImp extends TestCase implements CalculatorTestCase {
 
 	// fields
@@ -62,6 +67,21 @@ public class MultiplyCalculatorTestCaseImp extends TestCase implements Calculato
 	@Override
 	public void tearDown() throws Exception {
 		super.tearDown();
+	}
+
+	@Ignore("Ignored Test")
+	@Test
+	public void testOfTest() {
+		assertTrue(true);
+		assertFalse(false);
+		assertNotNull(this.getObject());
+		assertNotNull(this.getCalculator());
+		assertEquals(this.getPrimitive(), this.getPrimitive());
+		assertEquals(this.getObject(), this.getObject());
+		assertEquals(this.getCalculator(), this.getCalculator());
+		assertSame(this.getObject(), this.getObject());
+		assertSame(this.getCalculator(), this.getCalculator());
+		assertNotSame(this.getObject(), this.getCalculator());
 	}
 
 	@Test

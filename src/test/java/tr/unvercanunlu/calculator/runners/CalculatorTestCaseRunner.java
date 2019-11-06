@@ -1,6 +1,7 @@
 package tr.unvercanunlu.calculator.runners;
 
 import junit.framework.TestCase;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.Description;
 import org.junit.runner.Runner;
@@ -15,6 +16,7 @@ public class CalculatorTestCaseRunner extends Runner {
 	private static final String setUpMethodName = "setUp";
 	private static final String tearDownMethodName = "tearDown";
 	private static final Class testAnnotationClass = Test.class;
+	private static final Class testIgnoreAnnotationClass = Ignore.class;
 
 	// fields
 	private Class testClass;
@@ -61,7 +63,7 @@ public class CalculatorTestCaseRunner extends Runner {
 					throw new NoSuchMethodException();
 				else
 					for (Method method : this.testClass.getMethods()) {
-						if (method.isAnnotationPresent(testAnnotationClass)) {
+						if (method.isAnnotationPresent(testAnnotationClass) && !method.isAnnotationPresent(testIgnoreAnnotationClass)) {
 							notifier.fireTestStarted(Description.createTestDescription(this.testClass.getName(), method.getName()));
 							setUpMethod.invoke(testObject);
 							method.invoke(testObject);

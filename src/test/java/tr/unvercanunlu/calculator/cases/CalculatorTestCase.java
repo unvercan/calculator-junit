@@ -5,6 +5,9 @@ import org.junit.Test;
 public interface CalculatorTestCase {
 
 	@Test
+	void testOfTest();
+
+	@Test
 	void testWithNoInput();
 
 	@Test
