@@ -1,2 +1,2 @@
 # junit-testing-tutorial
-- JUnit Testing Tutorial
+- Learning and using the JUnit test framework with a basic application.
