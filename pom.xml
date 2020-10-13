@@ -12,7 +12,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<compiler.plugin.version>3.8.1</compiler.plugin.version>
 		<resources.plugin.version>3.1.0</resources.plugin.version>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 	</properties>
 	<dependencies>
 		<dependency>
