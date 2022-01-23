@@ -1,6 +1,8 @@
 package tr.unvercanunlu.calculator.runners;
 
 import junit.framework.TestCase;
+import lombok.Getter;
+import lombok.Setter;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.Description;
@@ -9,6 +11,8 @@ import org.junit.runner.notification.RunNotifier;
 
 import java.lang.reflect.Method;
 
+@Getter
+@Setter
 public class CalculatorTestCaseRunner extends Runner {
 
 	// constants
@@ -21,58 +25,49 @@ public class CalculatorTestCaseRunner extends Runner {
 	// fields
 	private Class testClass;
 
-	// constructors
-	public CalculatorTestCaseRunner() {
-	}
-
+	// constructor
 	public CalculatorTestCaseRunner(Class testClass) {
 		super();
 		this.testClass = testClass;
 	}
 
-	// getters
-	public Class getTestClass() {
-		return this.testClass;
-	}
-
-	// setters
-	public void setTestClass(Class testClass) {
-		this.testClass = testClass;
-	}
-
 	@Override
 	public Description getDescription() {
-		return Description.createTestDescription(this.testClass.getName(), runnerDescription);
+		return Description.createTestDescription(testClass.getName(), runnerDescription);
 	}
 
 	@Override
 	public void run(RunNotifier notifier) {
-		try {
-			Object testObject = this.testClass.newInstance();
-			if (testObject instanceof TestCase) {
+		try{
+			Object testObject = testClass.newInstance();
+			if(testObject instanceof TestCase){
 				Method setUpMethod = null;
 				Method tearDownMethod = null;
-				Method[] methods = this.testClass.getMethods();
-				for (Method method : methods) {
-					if (method.getName().equals(setUpMethodName))
+				Method[] methods = testClass.getMethods();
+				for(Method method : methods){
+					if(method.getName().equals(setUpMethodName)){
 						setUpMethod = method;
-					else if (method.getName().equals(tearDownMethodName))
+					} else if(method.getName().equals(tearDownMethodName)){
 						tearDownMethod = method;
+					}
 				}
-				if (setUpMethod == null || tearDownMethod == null)
+				if(setUpMethod == null || tearDownMethod == null){
 					throw new NoSuchMethodException();
-				else
-					for (Method method : this.testClass.getMethods()) {
-						if (method.isAnnotationPresent(testAnnotationClass) && !method.isAnnotationPresent(testIgnoreAnnotationClass)) {
-							notifier.fireTestStarted(Description.createTestDescription(this.testClass.getName(), method.getName()));
+				} else{
+					for(Method method : testClass.getMethods()){
+						if(method.isAnnotationPresent(testAnnotationClass) && !method.isAnnotationPresent(testIgnoreAnnotationClass)){
+							notifier.fireTestStarted(Description.createTestDescription(testClass.getName(), method.getName()));
 							setUpMethod.invoke(testObject);
 							method.invoke(testObject);
 							tearDownMethod.invoke(testObject);
-							notifier.fireTestFinished(Description.createTestDescription(this.testClass.getName(), method.getName()));
+							notifier.fireTestFinished(Description.createTestDescription(testClass.getName(), method.getName()));
 						}
 					}
-			} else throw new ClassNotFoundException();
-		} catch (Exception e) {
+				}
+			} else{
+				throw new ClassNotFoundException();
+			}
+		} catch(Exception e){
 			e.printStackTrace();
 		}
 	}

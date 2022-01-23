@@ -2,7 +2,7 @@ package tr.unvercanunlu.calculator.cases;
 
 import org.junit.Test;
 
-public interface CalculatorTestCase {
+public interface ICalculatorTestCase {
 
 	@Test
 	void testOfTest();

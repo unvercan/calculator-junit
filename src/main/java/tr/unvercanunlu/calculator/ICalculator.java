@@ -1,6 +1,6 @@
 package tr.unvercanunlu.calculator;
 
-public interface Calculator<T extends Number> {
+public interface ICalculator<T extends Number> {
 
 	T add(T... inputs);
 
