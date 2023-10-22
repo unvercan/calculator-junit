@@ -1,1 +1,1 @@
-# junit-testing-tutorial
+# Calculator with JUnit
